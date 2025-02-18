@@ -1,0 +1,28 @@
+Configuration:
+  status: info
+  appenders:
+    Console:
+      name: Console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%p %d{yyyy-MM-dd HH:mm:ss} %logger{36} - %highlight{%msg%n%throwable{short.lineNumber}}{FATAL=bg_red white, ERROR=red, WARN=yellow, INFO=blue, DEBUG=blue}"
+        disableAnsi: false
+
+    File:
+      name: File
+      fileName: logs/app.log
+      PatternLayout:
+        pattern: "%p %d{yyyy-MM-dd HH:mm:ss} %logger{36} - %highlight{%msg%n%throwable{short.lineNumber}}{FATAL=bg_red white, ERROR=red, WARN=yellow, INFO=blue, DEBUG=blue}"
+      Policies:
+        TimeBasedTriggeringPolicy:
+          interval: 1
+          modulate: true
+      DefaultRolloverStrategy:
+        max: 10
+
+  loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: Console
+        - ref: File
