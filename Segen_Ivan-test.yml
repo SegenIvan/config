@@ -1,8 +1,5 @@
 spring:
- sql:
-  init:
-   schemaLocations: schema.sql
-   dataLocations: data.sql
+ 
 jpa:
   show-sql: true
     properties:
