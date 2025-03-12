@@ -4,6 +4,12 @@ spring:
     username: postgres
     password: password
     url: jdbc:postgresql://localhost:5432/senla
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog-master.xml
+    liquibase-schema: public
+    parameters: 
+      databaseVendor: postgres
   jpa:
     show-sql: true
     properties:
@@ -15,3 +21,9 @@ spring:
   output:
     ansi:
       enabled: always
+mail: 
+  confirm: 
+    user: /mail/email.html
+  reset:
+    password: /mail/password.html
+    email: /mail/mail.html
