@@ -1,6 +1,6 @@
 spring:
   config: 
-    import: optional:configserver:
+    import: 'optional:configserver:'
   datasource:
     url: jdbc:h2:mem:mydb;NON_KEYWORDS=user,order,role
     username: sa
